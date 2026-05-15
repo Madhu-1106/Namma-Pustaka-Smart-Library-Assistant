@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namma-Pustaka · ನಮ್ಮ ಪುಸ್ತಕ · Smart Library</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;600;700&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">ನ</div>
+    <div class="header-brand">
+      <div class="header-title">Namma-Pustaka</div>
+      <div class="header-sub kn">ನಮ್ಮ ಪುಸ್ತಕ · Smart Library</div>
+    </div>
+    <div class="header-search">
+      <i class="ti ti-search" aria-hidden="true"></i>
+      <input type="text" id="globalSearch" placeholder="Search books, authors..." oninput="handleSearch(this.value)" autocomplete="off">
+      <button class="clear-search" id="clearSearch" onclick="clearSearch()" style="display:none" title="Clear search">
+        <i class="ti ti-x"></i>
+      </button>
+    </div>
+    <button class="header-notify" id="notifyBtn" onclick="toggleNotifications()" title="Notifications">
+      <i class="ti ti-bell"></i>
+      <span class="notify-badge" id="notifyBadge">0</span>
+    </button>
+  </header>
+
+  <!-- NOTIFICATION PANEL -->
+  <div class="notify-panel" id="notifyPanel" style="display:none">
+    <div id="notifyContent"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <button class="nav-btn active" onclick="switchTab('catalog')" id="tab-catalog">
+      <i class="ti ti-books"></i><span>Catalog</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('borrow')" id="tab-borrow">
+      <i class="ti ti-qrcode"></i><span>QR Borrow</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('transactions')" id="tab-transactions">
+      <i class="ti ti-list-check"></i><span>Transactions</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('reviews')" id="tab-reviews">
+      <i class="ti ti-star"></i><span>Reviews</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('leaderboard')" id="tab-leaderboard">
+      <i class="ti ti-trophy"></i><span>Leaderboard</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('addbook')" id="tab-addbook">
+      <i class="ti ti-circle-plus"></i><span>Add Book</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('students')" id="tab-students">
+      <i class="ti ti-users"></i><span>Students</span>
+    </button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="mainContent"></main>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL MOUNT -->
+<div id="modalMount"></div>
+
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/render-catalog.js"></script>
+<script src="js/render-borrow.js"></script>
+<script src="js/render-transactions.js"></script>
+<script src="js/render-reviews.js"></script>
+<script src="js/render-leaderboard.js"></script>
+<script src="js/render-addbook.js"></script>
+<script src="js/render-students.js"></script>
+<script src="js/modals.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
